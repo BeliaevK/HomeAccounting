@@ -1,5 +1,7 @@
 package ru.HomeAccounting.Utilities;
 
+import ru.HomeAccounting.Entities.HomeAccounting;
+
 import java.util.ArrayList;
 
 /**
@@ -14,7 +16,7 @@ public class ReadRecord {
         }
         return instance;
     }
-    public ArrayList<?> readRecord(){
+    public ArrayList<HomeAccounting> readRecord(){
         return null;
     }
 }

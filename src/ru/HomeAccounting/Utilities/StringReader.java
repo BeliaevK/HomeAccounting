@@ -20,26 +20,34 @@ public class StringReader {
 
     public static ArrayList<?> orderRead() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String readLine = reader.readLine();
-/*        try {*/
-
-        switch (readLine) {
-            case "c":
-                CreateRecord.getInstance().createRecord();
-                break;
-            case "r":
-                ReadRecord.getInstance().readRecord();
-                break;
-            case "u":
-                UpdateRecord.getInstance().updateRecord();
-                break;
-            case "d":
-                DeleteRecord.getInstance().deleteRecord();
-                break;
-/*            }
-
-        }catch ()*/
+        boolean isCorrectOrder = false;
+        while (!isCorrectOrder) {
+            String readLine = reader.readLine();
+            if (checkOrderFieldsIsCorrect(readLine)) {
+                switch (readLine) {
+                    case "c":
+                        CreateRecord.getInstance().createRecord();
+                        break;
+                    case "r":
+                        ReadRecord.getInstance().readRecord();
+                        break;
+                    case "u":
+                        UpdateRecord.getInstance().updateRecord();
+                        break;
+                    case "d":
+                        DeleteRecord.getInstance().deleteRecord();
+                        break;
+                }
+            } else System.out.println("Неверный запрос. Пример: \n c - создать запись, r - просмотреть список, u - " +
+                    "обновить запись, d - удалить запись");
         }
         return null;
     }
+
+    private static boolean checkOrderFieldsIsCorrect(String readLine) {
+        boolean isCorrect = true;
+        if (!readLine.equals("c") || !readLine.equals("r")|| !readLine.equals("u")|| !readLine.equals("d")) isCorrect = false;
+        return isCorrect;
+    }
+
 }

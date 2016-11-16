@@ -1,5 +1,7 @@
 package ru.HomeAccounting.Utilities;
 
+import ru.HomeAccounting.Entities.HomeAccounting;
+
 import java.util.ArrayList;
 
 /**
@@ -15,7 +17,7 @@ public class DeleteRecord {
         return instance;
     }
 
-    public ArrayList<?> deleteRecord (){
+    public ArrayList<HomeAccounting> deleteRecord (){
         return null;
     }
 }

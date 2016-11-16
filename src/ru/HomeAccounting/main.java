@@ -14,6 +14,9 @@ public class main {
     public static void main(String[] args) throws IOException {
         ArrayList<HomeAccounting> homeAccountingArrayList = Initialization.getInstance().initHomeAccArray();
         while (true) {
+            for (int i = 0; i < homeAccountingArrayList.size(); i++) {
+                System.out.println(homeAccountingArrayList.get(i));
+            }
             StringReader.getInstance().orderRead();
         }
     }

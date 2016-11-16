@@ -10,6 +10,8 @@ public class HomeAccounting {
     private String name;
     private int sum;
     private Date date;
+    private TypeCosts typeCosts;
+
 
     public enum TypeCosts {
         PRODUCTS , CLOTHES , RENT, ENTERTAIMENT }
@@ -19,7 +21,7 @@ public class HomeAccounting {
         this.setName(name);
         this.setSum(sum);
         this.setDate(date);
-/*        typeCosts = typeCosts;*/
+        this.setTypeCosts(typeCosts);
     }
 
     public int getId() {
@@ -52,5 +54,19 @@ public class HomeAccounting {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public TypeCosts getTypeCosts() {
+        return typeCosts;
+    }
+
+    public void setTypeCosts(TypeCosts typeCosts) {
+        this.typeCosts = typeCosts;
+    }
+
+
+    @Override
+    public String toString() {
+        return this.id + ", Наименование: " + this.name + ", тип: " + this.typeCosts + ", цена: " + this.sum + ", дата: " + this.date;
     }
 }

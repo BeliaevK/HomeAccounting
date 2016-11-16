@@ -1,5 +1,7 @@
 package ru.HomeAccounting.Utilities;
 
+import ru.HomeAccounting.Entities.HomeAccounting;
+
 import java.util.ArrayList;
 
 /**
@@ -15,7 +17,7 @@ public class UpdateRecord {
         return instance;
     }
 
-    public ArrayList<?> updateRecord(){
+    public ArrayList<HomeAccounting> updateRecord(){
         return null;
     }
 }
