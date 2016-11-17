@@ -1,5 +1,7 @@
 package ru.HomeAccounting.Utilities;
 
+import ru.HomeAccounting.Entities.HomeAccounting;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,35 +20,34 @@ public class StringReader {
         return instance;
     }
 
-    public static ArrayList<?> orderRead() throws IOException {
+    public static ArrayList<HomeAccounting> orderRead(ArrayList<HomeAccounting> homeAccountingArrayList) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        boolean isCorrectOrder = false;
-        while (!isCorrectOrder) {
             String readLine = reader.readLine();
             if (checkOrderFieldsIsCorrect(readLine)) {
                 switch (readLine) {
                     case "c":
-                        CreateRecord.getInstance().createRecord();
+                        CreateRecord.getInstance().createRecord(homeAccountingArrayList);
                         break;
                     case "r":
-                        ReadRecord.getInstance().readRecord();
+                        ReadRecord.getInstance().readRecord(homeAccountingArrayList);
                         break;
                     case "u":
-                        UpdateRecord.getInstance().updateRecord();
+                        UpdateRecord.getInstance().updateRecord(homeAccountingArrayList);
                         break;
                     case "d":
-                        DeleteRecord.getInstance().deleteRecord();
+                        DeleteRecord.getInstance().deleteRecord(homeAccountingArrayList);
                         break;
                 }
-            } else System.out.println("Неверный запрос. Пример: \n c - создать запись, r - просмотреть список, u - " +
+            } else {
+                System.out.println("Неверный запрос. Пример: \n c - создать запись, r - просмотреть список, u - " +
                     "обновить запись, d - удалить запись");
-        }
-        return null;
+            }
+        return homeAccountingArrayList;
     }
 
     private static boolean checkOrderFieldsIsCorrect(String readLine) {
-        boolean isCorrect = true;
-        if (!readLine.equals("c") || !readLine.equals("r")|| !readLine.equals("u")|| !readLine.equals("d")) isCorrect = false;
+        boolean isCorrect = false;
+        if (readLine.equals("c") || readLine.equals("r")|| readLine.equals("u")|| readLine.equals("d")) isCorrect = true;
         return isCorrect;
     }
 

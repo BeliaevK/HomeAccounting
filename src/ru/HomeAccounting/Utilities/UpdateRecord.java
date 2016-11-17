@@ -17,7 +17,7 @@ public class UpdateRecord {
         return instance;
     }
 
-    public ArrayList<HomeAccounting> updateRecord(){
+    public ArrayList<HomeAccounting> updateRecord(ArrayList<HomeAccounting> homeAccountingArrayList){
         return null;
     }
 }
